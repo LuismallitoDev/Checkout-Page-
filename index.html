@@ -83,11 +83,16 @@
               </div>
               <div class="country-postal">
                 <div class="half-input-div country">
-                  <div>
+                  <div id="country">
                     <label for="country-input">Country</label>
-                    <div class="half-input">
+                    <div class="half-input" id="droplist">
                       <span class="material-symbols-outlined"> globe </span>
-                      <input type="text" id="country-input" disabled placeholder="Your country...">
+                      <input
+                        type="text"
+                        id="country-input"
+                        disabled
+                        placeholder="Your country..."
+                      />
                       <span class="material-symbols-outlined">
                         expand_more
                       </span>
@@ -109,13 +114,13 @@
                   </div>
                 </div>
               </div>
-              <div class="save">
-                <input type="checkbox" id="save" />
-                <label for="save"
-                  >Save this information for the next time</label
-                >
-              </div>
-              <button type="submit">Continue</button>
+            </div>
+            <div class="save">
+              <input type="checkbox" id="save" />
+              <label for="save">Save this information for the next time</label>
+            </div>
+            <div class="submit-button-div">
+              <button type="submit" id="submit">Continue</button>
             </div>
           </div>
           <div class="items">
@@ -134,7 +139,7 @@
                     <span class="material-symbols-outlined"> remove </span>
                   </button>
                   <span id="quantity-bag">1</span>
-                  <button type="button">
+                  <button type="button" >
                     <span class="material-symbols-outlined"> add </span>
                   </button>
                 </div>
@@ -172,7 +177,6 @@
               <span>$148.98</span>
             </div>
           </div>
-          
         </form>
       </main>
       <footer>
