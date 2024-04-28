@@ -4,13 +4,16 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
+
 .container {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+
   overflow-x: hidden;
 }
 header,
@@ -30,11 +33,16 @@ header h1 {
 form {
   display: flex;
   flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  max-width: 1500px;
 }
 .form {
+  height: 100%;
   display: flex;
   flex-direction: column;
   width: 50%;
+  min-width: 250px;
 }
 .input-div {
   width: 100%;
@@ -42,7 +50,7 @@ form {
   flex-direction: column;
 }
 .input {
-  width: 75%;
+  width: 100%;
   max-width: 720px;
   padding: 7.5px 20px 7.5px 0;
   display: flex;
@@ -76,15 +84,20 @@ form {
 }
 .country-postal {
   margin-top: 20px;
-  width: 75%;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  max-width: 720px;
 }
-#country-droplist {
-  display: flex;
-  flex-direction: column;
+.country-postal label {
+  margin-bottom: 5px;
+}
+.country {
   position: relative;
+}
+#country {
+  cursor: pointer;
 }
 .half-input {
   display: flex;
@@ -106,8 +119,42 @@ form {
     font-weight: 400;
   }
 }
-.country input {
-  text-align: center;
+
+.opt-country {
+  position: absolute;
+  flex-direction: column;
+  background-color: #f2f2f2;
+  width: 100%;
+  border-radius: 12px;
+  margin-top: 10px;
+  max-height: 120px;
+  overflow-y: scroll;
+  display: none;
+  &::-webkit-scrollbar {
+    width: 7.5px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #4e5150;
+    border-radius: 12px;
+  }
+}
+.opt-country.active-list {
+  display: flex;
+}
+.active-expand {
+  transform: rotate(180deg);
+  transition: transform 0.1s ease-in-out;
+}
+.opt-country .opt {
+  padding: 10px;
+  &:hover {
+    background-color: #4e5150;
+    color: #fff;
+    cursor: pointer;
+  }
 }
 .half-input span {
   padding: 0 5px;
@@ -133,9 +180,11 @@ form {
   outline: none;
 }
 .submit-button-div {
-  width: 75%;
+  width: 100%;
   text-align: right;
+  max-width: 720px;
 }
+
 #submit {
   background-color: #f2994a;
   width: 30%;
@@ -144,6 +193,7 @@ form {
   border-radius: 12px;
   padding: 15.5px 0;
   cursor: pointer;
+  min-width: 90px;
 }
 .shipping,
 .contact-info {
@@ -154,20 +204,94 @@ form {
   display: flex;
   flex-direction: column;
   background-color: #f2f2f2;
+  width: 30%;
+  padding: 20px;
+  gap: 20px;
+  max-width: 500px;
+  min-width: 250px;
   height: fit-content;
-  width: 40%;
+  border-radius: 32px;
 }
 .item {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 10px;
+}
+.img-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.info-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.info-item h4 {
+  font-family: Montserrat;
+  font-size: 1em;
+  color: #4e5150;
+  font-weight: 600;
+  text-align: left;
+}
+.item-price-info {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
-.item .img-div {
-  max-width: 134.21px;
-  max-height: 136.27px;
+.item-price-info h3 {
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: left;
 }
-.img-div img{
-  width: 100%;
-  height: 100%
+.prices span {
+  &:first-of-type {
+    font-family: Montserrat;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    color: #f2994a;
+    margin-right: 5px;
+  }
+  &:last-of-type {
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: left;
+    color: #4e5150;
+    text-decoration: line-through;
+  }
+}
+.item-price-info span {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: right;
+}
+.item-add {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid #828282;
+  border-radius: 6px;
+}
+.item-add button {
+  background-color: transparent;
+  border: none;
+  color: #828282;
+  cursor: pointer;
+  &:first-of-type {
+    border-right: 1px solid #828282;
+  }
+  &:last-of-type {
+    border-left: 1px solid #828282;
+  }
 }
 /*Footer*/
 footer {
@@ -177,4 +301,59 @@ footer {
 }
 footer a {
   color: #4e5150;
+}
+hr {
+  color: #bdbdbd;
+}
+
+@media (max-width: 890px) {
+  main,
+  footer {
+    width: 100%;
+  }
+  header{
+    width: 50%;
+    text-align: center;
+  }
+  form {
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 3em;
+  }
+  .form{
+    width: 60%;
+  }
+  .items{
+    width: 60%;
+  }
+  .country-postal{
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+  }
+  .prices span {
+    &:first-of-type {
+      font-family: Montserrat;
+      font-size: 14px;
+    }
+    &:last-of-type {
+      font-family: Montserrat;
+      font-size: 10px;
+      font-weight: 600;
+      text-align: left;
+      color: #4e5150;
+      text-decoration: line-through;
+    }
+  }
+  .info-item h4{
+    font-size: 14px;
+  }
+  .item-price-info h3 {
+    font-size: 14px;
+  }
+  .save{
+    font-size: 10px;
+  }
+  footer{
+    font-size: 14px;
+  }
 }
