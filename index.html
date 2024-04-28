@@ -30,6 +30,7 @@
                     type="text"
                     id="email"
                     placeholder="Enter your email..."
+                    class="input-form"
                   />
                 </div>
               </div>
@@ -41,6 +42,7 @@
                   <input
                     type="text"
                     id="phone"
+                    class="input-form"
                     placeholder="Enter your phone..."
                   />
                 </div>
@@ -59,6 +61,7 @@
                   <input
                     type="text"
                     id="name"
+                    class="input-form"
                     placeholder="Your full name..."
                   />
                 </div>
@@ -70,6 +73,7 @@
                   <input
                     type="text"
                     id="address"
+                    class="input-form"
                     placeholder="Your address..."
                   />
                 </div>
@@ -78,7 +82,8 @@
                 <label for="city">City</label>
                 <div class="input">
                   <span class="material-symbols-outlined"> apartment </span>
-                  <input type="text" id="city" placeholder="Your city..." />
+                  <input type="text" id="city" placeholder="Your city..."
+                  class="input-form/>
                 </div>
               </div>
               <div class="country-postal">
@@ -98,9 +103,7 @@
                       </span>
                     </div>
                   </div>
-                  <div class="opt-country" id="opt-country">
-                    
-                  </div>
+                  <div class="opt-country" id="opt-country"></div>
                 </div>
                 <div class="half-input-div">
                   <label for="postal-code">Postal code</label>
@@ -111,6 +114,7 @@
                     <input
                       type="text"
                       id="postal-code"
+                      class="input-form"
                       placeholder="Your postal code..."
                     />
                   </div>
@@ -134,16 +138,16 @@
                 <div>
                   <h4>Vintage Backbag</h4>
                   <div class="prices">
-                    <span title="Now">$54.99</span>
+                    <span>$<span title="Now" id="bag-price">54.99</span></span>
                     <span title="Before">$94.99</span>
                   </div>
                 </div>
                 <div class="item-add">
-                  <button type="button">
+                  <button type="button" id="remove-bag">
                     <span class="material-symbols-outlined"> remove </span>
                   </button>
                   <span id="quantity-bag">1</span>
-                  <button type="button" >
+                  <button type="button" id="add-bag">
                     <span class="material-symbols-outlined"> add </span>
                   </button>
                 </div>
@@ -157,16 +161,16 @@
                 <div>
                   <h4>Levi Shoes</h4>
                   <div class="prices">
-                    <span title="Now">$74.99</span>
-                    <span title="Before">$124.99</span>
+                    <span>$<span title="Now" id="shoe-price">74.99</span></span>
+                    <span title="Before">124.99</span>
                   </div>
                 </div>
                 <div class="item-add">
-                  <button type="button">
+                  <button type="button" id="remove-shoes">
                     <span class="material-symbols-outlined"> remove </span>
                   </button>
                   <span id="quantity-shoes">1</span>
-                  <button type="button">
+                  <button type="button" id="add-shoes">
                     <span class="material-symbols-outlined"> add </span>
                   </button>
                 </div>
@@ -175,12 +179,12 @@
             <hr />
             <div class="item-price-info">
               <h3>Shipping</h3>
-              <span>$19</span>
+              <span>$<span id="shipping-price">19</span></span>
             </div>
             <hr />
             <div class="item-price-info">
               <h3>Total</h3>
-              <span>$148.98</span>
+              <span>$<span id="total-price"></span></span>
             </div>
           </div>
         </form>
@@ -200,6 +204,8 @@
         >
       </footer>
     </div>
-    <script src="main.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/prices.js"></script>
+    <script src="scripts/inputValidate.js"></script>
   </body>
 </html>
