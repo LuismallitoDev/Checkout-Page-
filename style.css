@@ -59,7 +59,18 @@ form {
   border: 1px solid #828282;
   border-radius: 12px;
   margin: 10px 0;
+  transition: outline border .05s ease-in-out;
 }
+.hovered{
+  border: 1px solid #333;
+  transition:  border .05s ease-in-out;
+}
+.focused{
+  border: 1px solid transparent !important;
+  outline: 2px solid #f2994a;
+  transition: outline  .05s ease-in-out;
+}
+
 .form h3 {
   font-family: "Montserrat", sans-serif;
   margin-bottom: 10px;
@@ -158,9 +169,9 @@ form {
   }
 }
 .half-input span {
-  
   padding: 0 5px;
   color: #828282;
+  transition: .05s ease-in-out color;
 }
 .save {
   font-family: "Montserrat", sans-serif;
@@ -186,7 +197,24 @@ form {
   text-align: right;
   max-width: 720px;
 }
-
+.message {
+  display: none;
+  font-size: 12px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+}
+.message.correct{
+  color: green;
+  display: inline;
+}
+.message.wrong{
+  color: red;
+  display: inline;
+}
+span.focused-span{
+  color: #f2994a;
+  transition: .05s ease-in-out color;
+}
 #submit {
   background-color: #f2994a;
   width: 30%;
@@ -268,14 +296,14 @@ form {
     text-decoration: line-through;
   }
 }
-.prices span:first-child > span{
+.prices span:first-child > span {
   font-family: Montserrat;
   font-size: 16px;
   font-weight: 600;
   text-align: left;
   color: #f2994a;
   margin-right: 5px;
-  text-decoration: none ;
+  text-decoration: none;
 }
 .item-price-info span {
   font-family: Montserrat;
@@ -292,7 +320,7 @@ form {
   border: 1px solid #828282;
   border-radius: 6px;
 }
-.item-add > span{
+.item-add > span {
   width: 30px;
   text-align: center;
 }
@@ -326,7 +354,7 @@ hr {
   footer {
     width: 100%;
   }
-  header{
+  header {
     width: 50%;
     text-align: center;
   }
@@ -335,13 +363,13 @@ hr {
     align-items: center;
     gap: 3em;
   }
-  .form{
+  .form {
     width: 60%;
   }
-  .items{
+  .items {
     width: 60%;
   }
-  .country-postal{
+  .country-postal {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
   }
@@ -359,16 +387,16 @@ hr {
       text-decoration: line-through;
     }
   }
-  .info-item h4{
+  .info-item h4 {
     font-size: 14px;
   }
   .item-price-info h3 {
     font-size: 14px;
   }
-  .save{
+  .save {
     font-size: 10px;
   }
-  footer{
+  footer {
     font-size: 14px;
   }
 }

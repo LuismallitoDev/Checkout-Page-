@@ -16,7 +16,7 @@
         <h1>Checkout</h1>
       </header>
       <main>
-        <form onsubmit="event.preventDefault()">
+        <form id="form">
           <div class="form">
             <!-- Contact Information-->
             <div class="contact-info">
@@ -33,6 +33,9 @@
                     class="input-form"
                   />
                 </div>
+                <span class="message" id="email-message"
+                  >Enter a valid email address</span
+                >
               </div>
               <!-- Phone Input -->
               <div class="input-div">
@@ -46,6 +49,9 @@
                     placeholder="Enter your phone..."
                   />
                 </div>
+                <span class="message" id="phone-message"
+                  >Enter a valid phone number</span
+                >
               </div>
             </div>
 
@@ -65,6 +71,9 @@
                     placeholder="Your full name..."
                   />
                 </div>
+                <span class="message" id="name-message"
+                  >This field is mandatory</span
+                >
               </div>
               <div class="input-div">
                 <label for="address">Address</label>
@@ -77,28 +86,45 @@
                     placeholder="Your address..."
                   />
                 </div>
+                <span class="message" id="address-message"
+                  >This field is mandatory</span
+                >
               </div>
               <div class="input-div">
                 <label for="city">City</label>
                 <div class="input">
                   <span class="material-symbols-outlined"> apartment </span>
-                  <input type="text" id="city" placeholder="Your city..."
-                  class="input-form/>
+                  <input
+                    type="text"
+                    id="city"
+                    placeholder="Your city..."
+                    class="input-form"
+                  />
                 </div>
+                <span class="message" id="city-message"
+                  >This field is mandatory</span
+                >
               </div>
               <div class="country-postal">
                 <div class="half-input-div country">
                   <div id="country">
                     <label for="country-input">Country</label>
                     <div class="half-input" id="droplist">
-                      <span class="material-symbols-outlined"> globe </span>
+                      <span class="material-symbols-outlined country-span">
+                        globe
+                      </span>
                       <input
+                        name="country"
                         type="text"
+                        class="input-form"
                         id="country-input"
                         disabled
                         placeholder="Your country..."
                       />
-                      <span id="expand" class="material-symbols-outlined">
+                      <span
+                        id="expand"
+                        class="material-symbols-outlined country-span"
+                      >
                         expand_more
                       </span>
                     </div>
@@ -112,12 +138,16 @@
                       markunread_mailbox
                     </span>
                     <input
+                      name="postal-code"
                       type="text"
-                      id="postal-code"
+                      id="postal"
                       class="input-form"
                       placeholder="Your postal code..."
                     />
                   </div>
+                  <span class="message" id="postal-message"
+                    >This field is mandatory</span
+                  >
                 </div>
               </div>
             </div>

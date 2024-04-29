@@ -6,6 +6,10 @@ document.querySelectorAll("input").forEach((input) => {
   input.setAttribute("autocomplete", "off");
 });
 buttonList.addEventListener("click", () => {
+  buttonList.lastChild.previousSibling.classList.toggle("focused") 
+  document.querySelectorAll(".country-span").forEach((span) => {
+    span.classList.toggle("focused-span");
+  })
   droplist.classList.toggle("active-list");
   expand.classList.toggle("active-expand");
 });
@@ -28,6 +32,9 @@ const evalPrice = () => {
       parseFloat(shoePrice) * parseInt(quantityShoes.textContent) +
       parseFloat(bagPrice) * parseInt(quantityBag.textContent)
   ).toFixed(2);
+  if(itemsBag == 0 && itemsShoes == 0){
+    totalPrice.textContent = "0.00";
+  }
 };
 evalPrice();
 document.getElementById("add-shoes").addEventListener("click", () => {

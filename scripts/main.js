@@ -16,10 +16,16 @@ fetch("https://restcountries.com/v3.1/all")
 
     countries.forEach((country) => {
       country.addEventListener("click", () => {
+        fields.country =true;
+        inputDropList.parentElement.classList.remove("focused");
         inputDropList.value = country.innerHTML;
         droplist.classList.remove("active-list");
         expand.classList.toggle("active-expand");
+        document.querySelectorAll(".country-span").forEach((span) => {
+          span.classList.remove("focused-span");
+        })
       });
     });
+    
   })
   .catch((error) => console.error("Error fetching countries:", error));
